@@ -1,0 +1,7 @@
+{
+  "js/ts.experimental.useTsgo": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"typescript.native-preview.tsdk": "node_modules\\@typescript\\native-preview",
+}
