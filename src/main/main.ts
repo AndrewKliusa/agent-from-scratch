@@ -12,13 +12,17 @@ const createWindow = () => {
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      nodeIntegration: true
+			devTools: true
     },
-
   });
 
-  console.log(MAIN_WINDOW_VITE_DEV_SERVER_URL);
-  mainWindow.loadURL(`${MAIN_WINDOW_VITE_DEV_SERVER_URL}/src/renderer/pages/index.html`);
+  if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
+		mainWindow.loadURL(`${MAIN_WINDOW_VITE_DEV_SERVER_URL}/src/renderer/pages/index.html`);
+	} else {
+		mainWindow.loadFile(
+			path.join(__dirname, `./renderer/${MAIN_WINDOW_VITE_NAME}/index.html`),
+		);
+	}
 };
 
 app.on('ready', createWindow);
