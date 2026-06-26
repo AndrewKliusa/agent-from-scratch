@@ -17,10 +17,10 @@ const createWindow = () => {
   });
 
   if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
-		mainWindow.loadURL(`${MAIN_WINDOW_VITE_DEV_SERVER_URL}/frontend/renderer/pages/index.html`);
+		mainWindow.loadURL(`${MAIN_WINDOW_VITE_DEV_SERVER_URL}/src/frontend/renderer/pages/index.html`);
 	} else {
 		mainWindow.loadFile(
-			path.join(__dirname, `./renderer/${MAIN_WINDOW_VITE_NAME}/index.html`),
+			path.join(__dirname, `./src/renderer/${MAIN_WINDOW_VITE_NAME}/index.html`),
 		);
 	}
 };
