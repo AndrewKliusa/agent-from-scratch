@@ -1,5 +1,14 @@
-export default function SendButton() {
+type SendButtonProps = {
+	onClick: () => void
+}
+
+export default function SendButton({onClick}: SendButtonProps) {
 	return (
-		<button className="border-black border-2 h-fit items-end bottom-0 rounded-full w-7">➤</button>
+		<button 
+			onClick={onClick}
+			className="border-black border-2 h-fit items-end bottom-0 rounded-full w-7"
+		>
+			➤
+		</button>
 	)
 }

@@ -1,6 +1,7 @@
 import { app, BrowserWindow } from 'electron';
 import path from 'node:path';
 import started from 'electron-squirrel-startup';
+import { registerIpc } from './ipc';
 
 if (started) {
   app.quit();
@@ -12,18 +13,19 @@ const createWindow = () => {
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-			devTools: true
-    },
+    }
   });
 
   if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
 		mainWindow.loadURL(`${MAIN_WINDOW_VITE_DEV_SERVER_URL}/src/frontend/renderer/pages/index.html`);
 	} else {
 		mainWindow.loadFile(
-			path.join(__dirname, `./src/renderer/${MAIN_WINDOW_VITE_NAME}/index.html`),
+			path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`),
 		);
 	}
 };
+
+registerIpc();
 
 app.on('ready', createWindow);
 

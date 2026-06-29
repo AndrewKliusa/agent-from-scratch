@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1",
+    "openai": "^6.45.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   }
